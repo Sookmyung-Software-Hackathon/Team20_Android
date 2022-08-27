@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.activity.result.ActivityResult;
@@ -23,6 +24,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.io.IOException;
 
 public class RegisterActivity extends AppCompatActivity {
+    private OneDialog oneDialog;
     private AcitvityRegisterBinding binding;
     private ImageView imageView;
     private ActivityResultLauncher<Intent> resultLauncher;
@@ -36,12 +38,16 @@ public class RegisterActivity extends AppCompatActivity {
         binding = AcitvityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        layoutParams.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        layoutParams.dimAmount = 0.8f;
+        getWindow().setAttributes(layoutParams);
+
         binding.btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                oneDialog = new OneDialog(RegisterActivity.this,"등록합니다","확인");
+                oneDialog.show();
             }
         });
 

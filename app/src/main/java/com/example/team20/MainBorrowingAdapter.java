@@ -26,7 +26,7 @@ public class MainBorrowingAdapter extends RecyclerView.Adapter<MainBorrowingAdap
 
     @NonNull
     @Override
-    public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MainBorrowingAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_recycler_item,parent,false);
         CustomViewHolder holder = new CustomViewHolder(view);

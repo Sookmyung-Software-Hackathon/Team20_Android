@@ -127,10 +127,10 @@ public class MainActivity extends AppCompatActivity {
         borrowed_arrayList.add(new MainData("시도12",byteArray));
 
         mainMyItemAdapter = new MainMyItemAdapter(my_item_arrayList);
-        binding.rcMyItem.setAdapter(mainBorrowedAdapter);
+        binding.rcMyItem.setAdapter(mainMyItemAdapter);
 
         mainBorrowingAdapter = new MainBorrowingAdapter(borrowing_arrayList);
-        binding.rcBorrowing.setAdapter(mainBorrowedAdapter);
+        binding.rcBorrowing.setAdapter(mainBorrowingAdapter);
 
         mainBorrowedAdapter = new MainBorrowedAdapter(borrowed_arrayList);
         binding.rcBorrowed.setAdapter(mainBorrowedAdapter);

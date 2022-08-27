@@ -16,4 +16,6 @@
     <style name="NavigationFont" parent="android:Widget.TextView">
         <item name="android:fontFamily">@font/main_light</item>
     </style>
+    <style name="SplashActivityTheme" parent="Theme.AppCompat.NoActionBar">
+    </style>
 </resources>

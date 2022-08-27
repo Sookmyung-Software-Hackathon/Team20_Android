@@ -29,7 +29,7 @@ public class JoinActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moveTaskToBack(true);
                 finishAndRemoveTask();
-                System.exit(0);
+                System.runFinalization();
             }
         });
 

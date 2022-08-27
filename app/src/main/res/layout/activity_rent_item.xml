@@ -6,84 +6,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <TextView
-            android:id="@+id/txt_register_title"
+            android:id="@+id/txt_rent_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/sangju"
             android:text="꾸기"
             android:textColor="@color/bg_dark_green"
             android:textSize="30dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
             app:layout_constraintBottom_toTopOf="@+id/txt_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.09" />
-
-
-        <TextView
-            android:id="@+id/txt_about_item"
-            android:layout_width="382dp"
-            android:layout_height="157dp"
-            android:layout_marginBottom="148dp"
-            android:background="@drawable/green_border"
-            android:fontFamily="@font/main_light"
-            android:gravity="top|left"
-            android:inputType="textMultiLine"
-            android:lines="5"
-            android:maxWidth="5.0dip"
-            android:minWidth="10.0dip"
-            android:scrollHorizontally="false"
-            android:text=" 내 푸마는 이렇고 저렇고"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <View
-            android:id="@+id/view_my_page"
-            android:layout_width="405dp"
-            android:layout_height="1dp"
-            android:background="@color/gray"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.149" />
-
-        <View
-            android:id="@+id/view_my_page_short"
-            android:layout_width="130dp"
-            android:layout_height="1dp"
-            android:background="@color/gray"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.192"
-            app:layout_constraintStart_toEndOf="@+id/txt_name"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.127" />
-
-        <TextView
-            android:id="@+id/txt_my_item_name"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/main_light"
-            android:text="내 푸마"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.546"
-            app:layout_constraintStart_toEndOf="@+id/txt_name"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.079" />
 
         <TextView
             android:id="@+id/txt_name"
@@ -93,30 +37,116 @@
             android:text="푸마 이름"
             android:textSize="25dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/txt_item_img"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.12"
+            app:layout_constraintHorizontal_bias="0.095"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.081" />
+            app:layout_constraintVertical_bias="0.539" />
 
+        <TextView
+            android:id="@+id/txt_my_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:fontFamily="@font/main_light"
+            android:text="내 푸마"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.279"
+            app:layout_constraintStart_toEndOf="@+id/txt_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.088" />
+
+        <View
+            android:id="@+id/view_my_page_short"
+            android:layout_width="130dp"
+            android:layout_height="1dp"
+            android:background="@color/bg_green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.193"
+            app:layout_constraintStart_toEndOf="@+id/txt_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.133" />
+
+
+        <View
+            android:id="@+id/view_my_page"
+            android:layout_width="405dp"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toTopOf="@+id/txt_item_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_my_item_name" />
+
+        <TextView
+            android:id="@+id/txt_item_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/main_light"
+            android:text="푸마의 이미지"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/img_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.076"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_my_page"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/img_item"
+            android:layout_width="124dp"
+            android:layout_height="115dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_money"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.055"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_item_img"
+            app:srcCompat="@drawable/green_rect" />
+
+        <TextView
+            android:id="@+id/txt_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/main_light"
+            android:text="품삯"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/linearlayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.061"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_item" />
 
         <LinearLayout
+            android:id="@+id/linearlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/border_green"
             android:orientation="horizontal"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="19dp"
-            tools:layout_editor_absoluteY="363dp">
+            app:layout_constraintBottom_toTopOf="@id/etxt_about_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_money"
+            tools:ignore="MissingConstraints">
 
             <TextView
                 android:id="@+id/etxt_price_rent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginLeft="25dp"
                 android:background="@color/transparent"
                 android:fontFamily="@font/main_light"
                 android:text="5,000"
@@ -133,14 +163,14 @@
                 android:id="@+id/txt_money_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="5dp"
                 android:fontFamily="@font/main_light"
                 android:text="냥"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.648"
@@ -150,8 +180,28 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/etxt_about_item"
+            android:layout_width="382dp"
+            android:layout_height="157dp"
+            android:background="@drawable/green_border"
+            android:fontFamily="@font/main_light"
+            android:gravity="top|left"
+            android:text=" 내 푸마는 이렇고 저렇고"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:maxWidth="5.0dip"
+            android:minWidth="10.0dip"
+            android:scrollHorizontally="false"
+            app:layout_constraintBottom_toTopOf="@id/btn_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearlayout"
+            tools:layout_editor_absoluteX="13dp"
+            tools:layout_editor_absoluteY="574dp" />
+
         <android.widget.Button
-            android:id="@+id/btn_rent"
+            android:id="@+id/btn_register"
             android:layout_width="279dp"
             android:layout_height="55dp"
             android:background="@drawable/btn_green"
@@ -163,51 +213,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_about_item"
-            app:layout_constraintVertical_bias="0.604" />
-
-        <ImageView
-            android:id="@+id/img_my_item"
-            android:layout_width="124dp"
-            android:layout_height="115dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.048"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_item_img"
-            app:layout_constraintVertical_bias="0.022"
-            app:srcCompat="@drawable/imgbox" />
-
-        <TextView
-            android:id="@+id/txt_item_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/main_light"
-            android:text="푸마의 이미지"
-            android:textSize="23dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.06"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.19" />
-
-        <TextView
-            android:id="@+id/txt_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/main_light"
-            android:text="품삯"
-            android:textSize="23dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.042"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.462" />
+            app:layout_constraintTop_toBottomOf="@+id/etxt_about_item"
+            app:layout_constraintVertical_bias="0.382" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

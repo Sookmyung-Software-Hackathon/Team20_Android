@@ -1,17 +1,27 @@
 package com.example.team20;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.graphics.Bitmap;
 
 import com.example.team20.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
+
+import java.io.IOException;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -19,6 +29,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private ImageView imageView;
+    private ActivityResultLauncher<Intent> resultLauncher;
+    private Uri uri;
+    private Bitmap bitmap;
     private MainAdapter mainAdapter;
     private ArrayList<MainData> my_item_arrayList;
     private ArrayList<MainData> borrowing_arrayList;
@@ -37,6 +51,33 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        imageView = binding.circleImgMyPage;
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                resultLauncher.launch(intent);
+            }
+        });
+
+        resultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == RESULT_OK) {
+                            uri = result.getData().getData();
+                            try {
+                                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                                imageView.setImageBitmap(bitmap);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                });
+
 
         binding.nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

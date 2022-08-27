@@ -53,7 +53,7 @@ public class ReturnDetailActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeByteArray(img, 0, img.length);
 
         binding.txtMyItemName.setText(name);
-        binding.imgMyItem.setImageBitmap(bitmap);
+        binding.imgItem.setImageBitmap(bitmap);
         binding.txtPriceRent.setText(price);
     }
 

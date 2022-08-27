@@ -2,17 +2,27 @@ package com.example.team20;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.graphics.Bitmap;
 
 import com.example.team20.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private MainAdapter mainAdapter;
+    private ArrayList<MainData> my_item_arrayList;
+    private ArrayList<MainData> borrowing_arrayList;
+    private ArrayList<MainData> borrowed_arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,5 +62,42 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile);
+        byte[] byteArray = bitmapToByteArray(bitmap);
+
+        my_item_arrayList = new ArrayList<>();
+        my_item_arrayList.add(new MainData("시도",byteArray));
+        my_item_arrayList.add(new MainData("시도2",byteArray));
+        my_item_arrayList.add(new MainData("시도3",byteArray));
+        my_item_arrayList.add(new MainData("시도4",byteArray));
+
+        borrowing_arrayList = new ArrayList<>();
+        borrowing_arrayList.add(new MainData("시도5",byteArray));
+        borrowing_arrayList.add(new MainData("시도6",byteArray));
+        borrowing_arrayList.add(new MainData("시도7",byteArray));
+        borrowing_arrayList.add(new MainData("시도8",byteArray));
+
+        borrowed_arrayList = new ArrayList<>();
+        borrowed_arrayList.add(new MainData("시도9",byteArray));
+        borrowed_arrayList.add(new MainData("시도10",byteArray));
+        borrowed_arrayList.add(new MainData("시도11",byteArray));
+        borrowed_arrayList.add(new MainData("시도12",byteArray));
+
+        mainAdapter = new MainAdapter(my_item_arrayList);
+        binding.rcMyItem.setAdapter(mainAdapter);
+
+        mainAdapter = new MainAdapter(borrowing_arrayList);
+        binding.rcBorrowing.setAdapter(mainAdapter);
+
+        mainAdapter = new MainAdapter(borrowed_arrayList);
+        binding.rcBorrowed.setAdapter(mainAdapter);
+
+    }
+    public byte[] bitmapToByteArray(Bitmap bitmap) { //img>bitmap>byte[] 함수 필요
+        ByteArrayOutputStream stream = new ByteArrayOutputStream() ;
+        bitmap.compress( Bitmap.CompressFormat.JPEG, 100, stream) ;
+        byte[] byteArray = stream.toByteArray() ;
+        return byteArray ;
     }
 }

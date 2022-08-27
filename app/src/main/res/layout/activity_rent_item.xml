@@ -149,6 +149,7 @@
                 android:layout_marginBottom="5dp"
                 android:background="@color/transparent"
                 android:fontFamily="@font/main_light"
+                android:inputType="number"
                 android:text="5,000"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -195,13 +196,13 @@
             android:minWidth="10.0dip"
             android:scrollHorizontally="false"
             android:text=" 내 푸마는 이렇고 저렇고"
-            app:layout_constraintBottom_toTopOf="@id/btn_register"
+            app:layout_constraintBottom_toTopOf="@id/btn_rent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linearlayout" />
 
         <android.widget.Button
-            android:id="@+id/btn_register"
+            android:id="@+id/btn_rent"
             android:layout_width="279dp"
             android:layout_height="55dp"
             android:background="@drawable/btn_green"

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,14 @@ public class RentItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityRentItemBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.btnRent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RentItemActivity.this, RequestActivity.class);
+                startActivity(intent);
+            }
+        });
 
         binding.nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

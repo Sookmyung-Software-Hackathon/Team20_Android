@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,16 @@ public class ReturnDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityReturnDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReturnDetailActivity.this, ReturnActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
         binding.nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

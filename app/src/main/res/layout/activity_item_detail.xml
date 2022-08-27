@@ -40,7 +40,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/txt_item_img"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.147"
+            app:layout_constraintHorizontal_bias="0.141"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.531" />
@@ -68,10 +68,10 @@
             android:background="@color/bg_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.187"
+            app:layout_constraintHorizontal_bias="0.255"
             app:layout_constraintStart_toEndOf="@+id/txt_name"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.189" />
+            app:layout_constraintVertical_bias="0.198" />
 
         <View
             android:id="@+id/view_my_page"

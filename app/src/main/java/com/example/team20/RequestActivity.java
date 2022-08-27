@@ -1,6 +1,5 @@
 package com.example.team20;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -18,12 +17,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.team20.databinding.AcitvityRegisterBinding;
 import com.example.team20.databinding.ActivityChangeBinding;
 import com.example.team20.databinding.ActivityJoinBinding;
+import com.example.team20.databinding.ActivityRequestBinding;
 
 import java.io.IOException;
 
-public class ChangeActivity extends AppCompatActivity {
+public class RequestActivity extends AppCompatActivity {
 
-    private ActivityChangeBinding binding;
+    private ActivityRequestBinding binding;
     private ImageView imageView;
     private ActivityResultLauncher<Intent> resultLauncher;
     private Uri uri;
@@ -32,32 +32,13 @@ public class ChangeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityChangeBinding.inflate(getLayoutInflater());
+        binding = ActivityRequestBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        imageView = binding.imgItem;
-        imageView.setOnClickListener(new View.OnClickListener() {
+        binding.btnRequestFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                resultLauncher.launch(intent);
-            }
-        });
-
-        binding.btnChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ChangeActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        binding.txtDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ChangeActivity.this, MainActivity.class);
+                Intent intent = new Intent(RequestActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

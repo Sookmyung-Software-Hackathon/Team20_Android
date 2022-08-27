@@ -150,6 +150,7 @@
                 android:background="@color/transparent"
                 android:fontFamily="@font/main_light"
                 android:text="5,000"
+                android:inputType="number"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -195,7 +196,7 @@
             android:maxWidth="5.0dip"
             android:minWidth="10.0dip"
             android:scrollHorizontally="false"
-            app:layout_constraintBottom_toTopOf="@id/btn_register"
+            app:layout_constraintBottom_toTopOf="@id/btn_return"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linearlayout"
@@ -203,7 +204,7 @@
             tools:layout_editor_absoluteY="574dp" />
 
         <android.widget.Button
-            android:id="@+id/btn_register"
+            android:id="@+id/btn_return"
             android:layout_width="279dp"
             android:layout_height="55dp"
             android:background="@drawable/btn_green"

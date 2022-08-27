@@ -149,6 +149,7 @@
                 android:layout_marginBottom="5dp"
                 android:background="@color/transparent"
                 android:fontFamily="@font/main_light"
+                android:inputType="number"
                 android:hint="5,000"
                 android:textSize="20dp"
                 android:textStyle="bold"

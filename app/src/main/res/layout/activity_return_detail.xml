@@ -44,6 +44,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.539" />
 
+
         <TextView
             android:id="@+id/txt_my_item_name"
             android:layout_width="wrap_content"
@@ -55,10 +56,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.279"
+            app:layout_constraintHorizontal_bias="0.242"
             app:layout_constraintStart_toEndOf="@+id/txt_name"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.088" />
+            app:layout_constraintVertical_bias="0.136" />
 
         <View
             android:id="@+id/view_my_page_short"
@@ -67,11 +68,10 @@
             android:background="@color/bg_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.193"
+            app:layout_constraintHorizontal_bias="0.14"
             app:layout_constraintStart_toEndOf="@+id/txt_name"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.133" />
-
+            app:layout_constraintVertical_bias="0.171" />
 
         <View
             android:id="@+id/view_my_page"
@@ -95,7 +95,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/img_item"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.076"
+            app:layout_constraintHorizontal_bias="0.063"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_my_page"
             app:layout_constraintVertical_bias="0.0" />
@@ -182,8 +182,10 @@
 
         <TextView
             android:id="@+id/etxt_about_item"
-            android:layout_width="382dp"
-            android:layout_height="157dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/green_border"
             android:fontFamily="@font/main_light"
             android:gravity="top|left"

@@ -182,8 +182,10 @@
 
         <EditText
             android:id="@+id/etxt_about_item"
-            android:layout_width="382dp"
-            android:layout_height="157dp"
+            android:layout_width="387dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/yellow_border"
             android:fontFamily="@font/main_light"
             android:gravity="top|left"
@@ -193,7 +195,7 @@
             android:maxWidth="5.0dip"
             android:minWidth="10.0dip"
             android:scrollHorizontally="false"
-            app:layout_constraintBottom_toTopOf="@id/btn_register"
+            app:layout_constraintBottom_toTopOf="@id/btn_change"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.448"
             app:layout_constraintStart_toStartOf="parent"
@@ -201,16 +203,16 @@
 
 
         <android.widget.Button
-            android:id="@+id/btn_register"
+            android:id="@+id/btn_change"
             android:layout_width="279dp"
             android:layout_height="55dp"
             android:background="@drawable/btn_yellow"
             android:fontFamily="@font/main_light"
-            android:text="올리기"
+            android:text="고치기"
             android:textColor="@color/white"
             android:textSize="25dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/txt_delete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etxt_about_item"
@@ -230,7 +232,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_register"
+            app:layout_constraintTop_toBottomOf="@+id/btn_change"
             app:layout_constraintVertical_bias="0.166" />
 
 

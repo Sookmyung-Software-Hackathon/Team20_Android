@@ -36,6 +36,15 @@
         <activity android:name=".ReturnActivity"
             android:theme="@style/Theme.Team20">
         </activity>
+        <activity android:name=".ItemDetailActivity"
+            android:theme="@style/Theme.Team20">
+        </activity>
+        <activity android:name=".ChangeActivity"
+            android:theme="@style/Theme.Team20">
+        </activity>
+        <activity android:name=".ReturnDetailActivity"
+            android:theme="@style/Theme.Team20">
+        </activity>
     </application>
 
 </manifest>

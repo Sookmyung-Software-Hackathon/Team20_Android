@@ -161,7 +161,7 @@
             tools:ignore="MissingConstraints">
 
             <TextView
-                android:id="@+id/etxt_price_rent"
+                android:id="@+id/txt_price_rent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"

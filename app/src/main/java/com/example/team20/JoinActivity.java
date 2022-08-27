@@ -32,7 +32,5 @@ public class JoinActivity extends AppCompatActivity {
                 System.runFinalization();
             }
         });
-
-
     }
 }

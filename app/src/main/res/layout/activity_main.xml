@@ -1,18 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle_img_my_page"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@color/bg_green"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="15dp"/>
+        <TextView
+            android:id="@+id/txt_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="닉네임"
+            android:textSize="25dp"
+            android:fontFamily="@font/main_bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/circle_img_my_page"
+            app:layout_constraintBottom_toTopOf="@id/img_point"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginLeft="10dp"/>
+        <ImageView
+            android:id="@+id/img_point"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/coin"
+            app:layout_constraintTop_toBottomOf="@id/txt_nickname"
+            app:layout_constraintLeft_toRightOf="@id/circle_img_my_page"
+            app:layout_constraintBottom_toTopOf="@+id/view_my_page"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/txt_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10000"
+            android:textSize="18dp"
+            app:layout_constraintLeft_toRightOf="@id/img_point"
+            app:layout_constraintTop_toBottomOf="@id/txt_nickname"
+            android:fontFamily="@font/main_light"/>
+        <View
+            android:id="@+id/view_my_page"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/circle_img_my_page"
+            android:layout_margin="15dp"/>
+        <TextView
+            android:id="@+id/txt_my_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내 물건"
+            android:fontFamily="@font/main_bold"
+            android:textSize="23dp"
+            app:layout_constraintTop_toBottomOf="@id/view_my_page"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rc_my_item"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/plus"
+            app:layout_constraintLeft_toRightOf="@id/txt_my_item"
+            app:layout_constraintTop_toBottomOf="@+id/view_my_page"
+            app:layout_constraintBottom_toTopOf="@id/rc_my_item"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="5dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_my_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txt_my_item"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            tools:listitem="@layout/activity_recycler_item"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/layout_drawer_header"
+        app:menu="@menu/drawer_menu"
+        app:itemTextAppearance="@style/NavigationFont"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true" />
+</androidx.drawerlayout.widget.DrawerLayout>

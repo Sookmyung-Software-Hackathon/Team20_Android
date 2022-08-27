@@ -7,9 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="bg_green">#FFD0F1CF</color>
-    <color name="bg_turquoise_blue">#FF40C4D2</color>
-    <color name="bg_blue">#FF09A8FA</color>
-    <color name="bg_purple_blue">#FF606DEE</color>
+    <color name="bg_dark_green">#FF074736</color>
+    <color name="bg_green">#FF52925a</color>
+    <color name="bg_yellow">#FFf0bb63</color>
+    <color name="bg_light_yellow">#FFf4eea9</color>
     <color name="gray">#63000000</color>
 </resources>

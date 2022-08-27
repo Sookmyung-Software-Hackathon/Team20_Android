@@ -6,11 +6,11 @@
         android:title="마이 페이지" />
     <item
         android:id="@+id/item_borrow"
-        android:title="대여"/>
+        android:title="푸마 꾸기"/>
     <item
         android:id="@+id/item_registration"
-        android:title="등록"/>
+        android:title="푸마 올리기"/>
     <item
         android:id="@+id/item_return"
-        android:title="반납"/>
+        android:title="푸마 돌려주기"/>
 </menu>

@@ -9,40 +9,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/green_gradient">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rc_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/txt_items_list"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"
-            tools:listitem="@layout/activity_recycler_category"/>
         <TextView
-            android:id="@+id/txt_items_list"
+            android:id="@+id/txt_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="푸마 목록"
-            app:layout_constraintTop_toBottomOf="@+id/rc_category"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/view_rent_item"
-            app:layout_constraintRight_toRightOf="parent"
             android:fontFamily="@font/sangju"
-            android:textSize="25dp"
-            android:textColor="@color/bg_dark_green"/>
+            android:text="돌려주기"
+            android:textColor="@color/bg_dark_green"
+            android:textSize="30dp"
+            android:layout_margin="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
         <View
-            android:id="@+id/view_rent_item"
+            android:id="@+id/view_return"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="2px"
             android:background="@color/bg_green"
-            app:layout_constraintTop_toBottomOf="@+id/txt_items_list"
+            app:layout_constraintTop_toBottomOf="@+id/txt_return"
+            app:layout_constraintBottom_toTopOf="@+id/rc_items_list"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_margin="15dp"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rc_items_list"
             android:layout_width="match_parent"
@@ -51,10 +38,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_rent_item"
+            app:layout_constraintTop_toBottomOf="@+id/view_return"
             tools:listitem="@layout/activity_recycler_rent_item"
             app:layout_constrainedHeight="true"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav"

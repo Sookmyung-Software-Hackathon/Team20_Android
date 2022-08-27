@@ -48,6 +48,9 @@
         <activity android:name=".ReturnDetailActivity"
             android:theme="@style/Theme.Team20">
         </activity>
+        <activity android:name=".RentItemActivity"
+            android:theme="@style/Theme.Team20">
+        </activity>
     </application>
 
 </manifest>

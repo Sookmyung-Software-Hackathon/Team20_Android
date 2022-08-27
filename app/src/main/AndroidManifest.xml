@@ -33,6 +33,9 @@
         <activity android:name=".RentPageActivity"
             android:theme="@style/Theme.Team20">
         </activity>
+        <activity android:name=".ReturnActivity"
+            android:theme="@style/Theme.Team20">
+        </activity>
     </application>
 
 </manifest>

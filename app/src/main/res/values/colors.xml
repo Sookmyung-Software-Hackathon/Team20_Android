@@ -12,4 +12,6 @@
     <color name="bg_yellow">#FFf0bb63</color>
     <color name="bg_light_yellow">#FFf4eea9</color>
     <color name="gray">#63000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="dark_red">#FF840002</color>
 </resources>

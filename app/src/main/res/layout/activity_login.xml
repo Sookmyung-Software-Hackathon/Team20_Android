@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="208dp"
-        android:fontFamily="@font/main_light"
+        android:fontFamily="@font/sangju"
         android:text="로그인"
         android:textColor="@color/bg_yellow"
         android:textSize="23sp"

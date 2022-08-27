@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circle_img_drawer"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@color/bg_green"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/ly_drawer_text"
+        app:layout_constraintBottom_toBottomOf="@+id/view_drawer"
+        android:layout_margin="20dp"/>
+    <LinearLayout
+        android:id="@+id/ly_drawer_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toRightOf="@id/circle_img_drawer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/view_drawer"
+        android:layout_marginLeft="10dp">
+        <TextView
+            android:id="@+id/txt_drawer_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="닉네임"
+            android:textSize="17dp"
+            android:fontFamily="@font/main_light"/>
+        <TextView
+            android:id="@+id/txt_drawer_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이메일"
+            android:textSize="15dp"
+            android:fontFamily="@font/main_light"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/bg_green"
+        app:layout_constraintTop_toBottomOf="@+id/ly_drawer_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

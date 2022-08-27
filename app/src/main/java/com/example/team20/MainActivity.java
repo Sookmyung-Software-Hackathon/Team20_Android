@@ -16,7 +16,6 @@ import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.graphics.Bitmap;
 
 import com.example.team20.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
@@ -33,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> resultLauncher;
     private Uri uri;
     private Bitmap bitmap;
-    private MainAdapter mainAdapter;
+    private MainBorrowedAdapter mainBorrowedAdapter;
+    private MainBorrowingAdapter mainBorrowingAdapter;
+    private MainMyItemAdapter mainMyItemAdapter;
     private ArrayList<MainData> my_item_arrayList;
     private ArrayList<MainData> borrowing_arrayList;
     private ArrayList<MainData> borrowed_arrayList;
@@ -125,14 +126,14 @@ public class MainActivity extends AppCompatActivity {
         borrowed_arrayList.add(new MainData("시도11",byteArray));
         borrowed_arrayList.add(new MainData("시도12",byteArray));
 
-        mainAdapter = new MainAdapter(my_item_arrayList);
-        binding.rcMyItem.setAdapter(mainAdapter);
+        mainMyItemAdapter = new MainMyItemAdapter(my_item_arrayList);
+        binding.rcMyItem.setAdapter(mainBorrowedAdapter);
 
-        mainAdapter = new MainAdapter(borrowing_arrayList);
-        binding.rcBorrowing.setAdapter(mainAdapter);
+        mainBorrowingAdapter = new MainBorrowingAdapter(borrowing_arrayList);
+        binding.rcBorrowing.setAdapter(mainBorrowedAdapter);
 
-        mainAdapter = new MainAdapter(borrowed_arrayList);
-        binding.rcBorrowed.setAdapter(mainAdapter);
+        mainBorrowedAdapter = new MainBorrowedAdapter(borrowed_arrayList);
+        binding.rcBorrowed.setAdapter(mainBorrowedAdapter);
 
     }
     public byte[] bitmapToByteArray(Bitmap bitmap) { //img>bitmap>byte[] 함수 필요

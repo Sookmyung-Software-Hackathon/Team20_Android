@@ -15,18 +15,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHolder> {
+public class MainBorrowingAdapter extends RecyclerView.Adapter<MainBorrowingAdapter.CustomViewHolder> {
 
     private ArrayList<MainData> arrayList;
     private Intent intent;
     private Bitmap bitmap;
-    public MainAdapter(ArrayList<MainData> arrayList) {
+    public MainBorrowingAdapter(ArrayList<MainData> arrayList) {
         this.arrayList = arrayList;
     }
 
     @NonNull
     @Override
-    public MainAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_recycler_item,parent,false);
         CustomViewHolder holder = new CustomViewHolder(view);
@@ -35,7 +35,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MainAdapter.CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MainBorrowingAdapter.CustomViewHolder holder, int position) {
 
         bitmap = BitmapFactory.decodeByteArray(arrayList.get(holder.getAdapterPosition()).getItem_img_path(), 0, arrayList.get(position).getItem_img_path().length); //byte[]를 bitmap
         holder.item_name.setText(arrayList.get(holder.getAdapterPosition()).getItem_name());
@@ -45,7 +45,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(view.getContext(), ItemDetailActivity.class);
+                intent = new Intent(view.getContext(), BorrowingDetailActivity.class);
                 intent.putExtra("이름",arrayList.get(holder.getAdapterPosition()).getItem_name());
                 intent.putExtra("사진",bitmapToByteArray(bitmap));
                 view.getContext().startActivity(intent);

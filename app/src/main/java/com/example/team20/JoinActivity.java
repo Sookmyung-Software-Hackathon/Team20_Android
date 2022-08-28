@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,7 +59,8 @@ public class JoinActivity extends AppCompatActivity {
         id = binding.etxtJoinId.getText().toString();
         pw = binding.etxtJoinPw.getText().toString();
         name = binding.etxtNickname.getText().toString();
-        img = byteArray_basicProfile;
+//        img = byteArray_basicProfile;
+        img = null;
         number = binding.etxtNumber.getText().toString();
         mail = binding.etxtJoinEmail.getText().toString();
         Member member = new Member(id, name, img, pw,mail,number);
@@ -80,6 +82,7 @@ public class JoinActivity extends AppCompatActivity {
                             showSuccessDialog();
                         } else {
                             // 통신 성공, 그러나 원하는 정보를 받아오거나 보내지 못함
+                            Toast.makeText(JoinActivity.this,id+name+pw+number+mail,Toast.LENGTH_LONG).show();
                             showFailDialog();
                         }
                     }

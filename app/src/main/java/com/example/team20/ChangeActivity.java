@@ -1,13 +1,17 @@
 package com.example.team20;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Switch;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -18,11 +22,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.team20.databinding.AcitvityRegisterBinding;
 import com.example.team20.databinding.ActivityChangeBinding;
 import com.example.team20.databinding.ActivityJoinBinding;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.io.IOException;
 
 public class ChangeActivity extends AppCompatActivity {
-    private TwoDialog twoDialog;
     private ActivityChangeBinding binding;
     private ImageView imageView;
     private ActivityResultLauncher<Intent> resultLauncher;
@@ -48,16 +52,14 @@ public class ChangeActivity extends AppCompatActivity {
         binding.btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                twoDialog = new TwoDialog(ChangeActivity.this,"고치시겠습니까?","확인","취소");
-                twoDialog.show();
+                showChangeDialog();
             }
         });
 
         binding.txtDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                twoDialog = new TwoDialog(ChangeActivity.this,"버리시겠습니까?","확인","취소");
-                twoDialog.show();
+                showDeleteDialog();
             }
         });
 
@@ -77,5 +79,40 @@ public class ChangeActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    void showChangeDialog(){
+        AlertDialog.Builder changeBuilder = new AlertDialog.Builder(ChangeActivity.this)
+                .setMessage("고치시겠습니까?")
+                .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })
+                .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+        AlertDialog changeDlg = changeBuilder.create();
+        changeDlg.show();
+    }
+    void showDeleteDialog(){
+        AlertDialog.Builder deleteBuilder = new AlertDialog.Builder(ChangeActivity.this)
+                .setMessage("버리시겠습니까?")
+                .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })
+                .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+        AlertDialog deleteDlg = deleteBuilder.create();
+        deleteDlg.show();
     }
 }

@@ -54,6 +54,9 @@
         <activity android:name=".BorrowingDetailActivity"
             android:theme="@style/Theme.Team20">
         </activity>
+        <activity android:name=".RequestActivity"
+            android:theme="@style/Theme.Team20">
+        </activity>
     </application>
 
 </manifest>

@@ -1,5 +1,7 @@
 package com.example.team20;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -23,7 +25,6 @@ import com.example.team20.databinding.ActivityRequestBinding;
 import java.io.IOException;
 
 public class RequestActivity extends AppCompatActivity {
-    private OneDialog oneDialog;
     private ActivityRequestBinding binding;
     private ImageView imageView;
     private ActivityResultLauncher<Intent> resultLauncher;
@@ -44,11 +45,7 @@ public class RequestActivity extends AppCompatActivity {
         binding.btnRequestFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                oneDialog = new OneDialog(RequestActivity.this,"등록합니다","확인");
-                oneDialog.show();
-                Intent intent = new Intent(RequestActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                showRequestDialog();
             }
         });
 
@@ -68,5 +65,22 @@ public class RequestActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+    void showRequestDialog(){
+        AlertDialog.Builder changeBuilder = new AlertDialog.Builder(RequestActivity.this)
+                .setMessage("요청하겠습니까?")
+                .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })
+                .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+        AlertDialog changeDlg = changeBuilder.create();
+        changeDlg.show();
     }
 }

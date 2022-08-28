@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:fontFamily">@font/main_light</item>
+        <item name="android:colorAccent">@color/bg_yellow</item>
+    </style>
+</resources>

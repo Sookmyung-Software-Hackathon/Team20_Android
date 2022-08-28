@@ -1,5 +1,7 @@
 package com.example.team20;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,7 +17,6 @@ import com.example.team20.databinding.ActivityReturnDetailBinding;
 import com.google.android.material.navigation.NavigationView;
 
 public class ReturnDetailActivity extends AppCompatActivity {
-    private TwoDialog twoDialog;
     private ActivityReturnDetailBinding binding;
     @Override
 
@@ -32,11 +33,7 @@ public class ReturnDetailActivity extends AppCompatActivity {
         binding.btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                twoDialog = new TwoDialog(ReturnDetailActivity.this,"반납하시겠습니까?","확인","취소");
-                twoDialog.show();
-                Intent intent = new Intent(ReturnDetailActivity.this, ReturnActivity.class);
-                startActivity(intent);
-                finish();
+                showReturnDialog();
             }
         });
 
@@ -76,5 +73,21 @@ public class ReturnDetailActivity extends AppCompatActivity {
         binding.imgItem.setImageBitmap(bitmap);
         binding.txtPriceRent.setText(price);
     }
-
+    void showReturnDialog(){
+        AlertDialog.Builder changeBuilder = new AlertDialog.Builder(ReturnDetailActivity.this)
+                .setMessage("돌려주겠습니까?")
+                .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })
+                .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+        AlertDialog changeDlg = changeBuilder.create();
+        changeDlg.show();
+    }
 }

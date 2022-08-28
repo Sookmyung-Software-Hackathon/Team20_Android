@@ -2,6 +2,7 @@ package com.example.team20;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +16,7 @@ public class DeleteDialog extends Dialog {
 
     public DeleteDialog(@NonNull Context context, String contents, String btn_txt_f, String btn_txt_s) {
         super(context);
-        setContentView(R.layout.activity_two_dialog);
+        setContentView(R.layout.activity_two_dialog_g);
 
         txt = findViewById(R.id.txt);
         txt.setText(contents);

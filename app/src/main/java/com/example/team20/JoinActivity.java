@@ -13,11 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.team20.databinding.ActivityJoinBinding;
 import com.example.team20.domain.Member;
 import com.example.team20.retrofit.MemberApi;
+import com.example.team20.retrofit.RetrofitService;
 import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -30,8 +33,10 @@ public class JoinActivity extends AppCompatActivity {
     private byte[] img; //drawble에서
     private String number; //etxt_number
     private String mail;
-    private Bitmap bitmap;
+    private Bitmap bitmap_basicProfile;
     private byte[] byteArray_basicProfile;
+    RetrofitService retrofitService = new RetrofitService();
+    MemberApi memberApi = retrofitService.getRetrofit().create(MemberApi.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +49,7 @@ public class JoinActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .build();
 
-        Bitmap bitmap_basicProfile = BitmapFactory.decodeResource(getResources(), R.drawable.basic_profile);
+        bitmap_basicProfile = BitmapFactory.decodeResource(getResources(), R.drawable.basic_profile);
         byteArray_basicProfile = bitmapToByteArray(bitmap_basicProfile);
 
         MemberApi service = retrofit.create(MemberApi.class);
@@ -65,7 +70,16 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Call<Member> memberCall = service.save(member);
+                    memberApi.save(member)
+                            .enqueue(new Callback<Member>() {
+                                @Override
+                                public void onResponse(Call<Member> call, Response<Member> response) {
+                                }
+
+                                @Override
+                                public void onFailure(Call<Member> call, Throwable t) {
+                                }
+                            });
                     showSuccessDialog();
                     Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
                     startActivity(intent);

@@ -3,7 +3,6 @@ package com.example.team20;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,8 +26,6 @@ public class ChangeDialog extends Dialog {
         btn_f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(v.getContext(), ChangeActivity.class);
-                intent.putExtra("btn","y");
                 dismiss();
             }
         });
@@ -37,8 +34,6 @@ public class ChangeDialog extends Dialog {
         btn_s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(v.getContext(), ChangeActivity.class);
-                intent.putExtra("btn","n");
                 dismiss();
             }
         });

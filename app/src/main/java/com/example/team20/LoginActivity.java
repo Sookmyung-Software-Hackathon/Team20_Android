@@ -14,6 +14,7 @@ import com.example.LoginInfo;
 import com.example.team20.databinding.ActivityLoginBinding;
 import com.example.team20.domain.Member;
 import com.example.team20.retrofit.MemberApi;
+import com.example.team20.retrofit.RetrofitService;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
@@ -30,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     private String pw;
     LoginInfo loginInfo;
     Member loginMember;
+    RetrofitService retrofitService = new RetrofitService();
+    MemberApi memberApi = retrofitService.getRetrofit().create(MemberApi.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,29 +59,26 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Call<Member> login = service.login(id,pw);
-                    login.enqueue(new Callback<Member>()
-                    {
-                        @Override
-                        public void onResponse(@NonNull Call<Member> call, @NonNull Response<Member> response)
-                        {
-                            if (response.isSuccessful() && response.body() != null)
-                            {
-                                loginMember.setName(response.body().getName());
-                                loginMember.setEmail(response.body().getEmail());
-                                loginMember.setPassword(response.body().getPassword());
-                                loginMember.setTelNum(response.body().getTelNum());
-                                loginMember.setProfileImage(response.body().getProfileImage());
-                                loginMember.setId(response.body().getId());
-                                loginInfo.setCurrentMember(loginMember);
-                            }
-                        }
+                    memberApi.login(id,pw)
+                            .enqueue(new Callback<Member>() {
+                                @Override
+                                public void onResponse(Call<Member> call, Response<Member> response) {
+                                    if (response.isSuccessful() && response.body() != null)
+                                    {
+                                        loginMember.setName(response.body().getName());
+                                        loginMember.setEmail(response.body().getEmail());
+                                        loginMember.setPassword(response.body().getPassword());
+                                        loginMember.setTelNum(response.body().getTelNum());
+                                        loginMember.setProfileImage(response.body().getProfileImage());
+                                        loginMember.setId(response.body().getId());
+                                        loginInfo.setCurrentMember(loginMember);
+                                    }
+                                }
 
-                        @Override
-                        public void onFailure(@NonNull Call<Member> call, @NonNull Throwable t)
-                        {
-                        }
-                    });
+                                @Override
+                                public void onFailure(Call<Member> call, Throwable t) {
+                                }
+                            });
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();

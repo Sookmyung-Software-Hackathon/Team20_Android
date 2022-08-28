@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.activity.result.ActivityResult;
@@ -22,7 +23,7 @@ import com.example.team20.databinding.ActivityRequestBinding;
 import java.io.IOException;
 
 public class RequestActivity extends AppCompatActivity {
-
+    private OneDialog oneDialog;
     private ActivityRequestBinding binding;
     private ImageView imageView;
     private ActivityResultLauncher<Intent> resultLauncher;
@@ -35,9 +36,16 @@ public class RequestActivity extends AppCompatActivity {
         binding = ActivityRequestBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        layoutParams.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        layoutParams.dimAmount = 0.8f;
+        getWindow().setAttributes(layoutParams);
+
         binding.btnRequestFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                oneDialog = new OneDialog(RequestActivity.this,"등록합니다","확인");
+                oneDialog.show();
                 Intent intent = new Intent(RequestActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();

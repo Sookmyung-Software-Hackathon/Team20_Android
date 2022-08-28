@@ -22,6 +22,7 @@ public class RentPageActivity extends AppCompatActivity {
     private CategoryAdapter categoryAdapter;
     private ArrayList<ReturnData> rent_arrayList;
     private ArrayList<CategoryData> category_arrayList;
+    private ArrayList<ReturnData> test_arrayList;
     private LinearLayoutManager linearLayoutManager;
 
     @Override
@@ -67,10 +68,6 @@ public class RentPageActivity extends AppCompatActivity {
         rent_arrayList.add(new ReturnData("시도7","30000",byteArray));
         rent_arrayList.add(new ReturnData("시도8","40000",byteArray));
 
-        rentAdapter = new RentAdapter(rent_arrayList);
-        binding.rcItemsList.setAdapter(rentAdapter);
-        linearLayoutManager = new LinearLayoutManager(this);
-        binding.rcItemsList.setLayoutManager(linearLayoutManager);
 
         Bitmap bitmap_book = BitmapFactory.decodeResource(getResources(), R.drawable.book);
         byte[] byteArray_book = bitmapToByteArray(bitmap_book);
@@ -88,6 +85,7 @@ public class RentPageActivity extends AppCompatActivity {
         byte[] byteArray_child = bitmapToByteArray(bitmap_child);
 
         category_arrayList = new ArrayList<>();
+
         category_arrayList.add(new CategoryData("도서",byteArray_book));
         category_arrayList.add(new CategoryData("전자기기",byteArray_elec));
         category_arrayList.add(new CategoryData("의류",byteArray_clothes));
@@ -98,6 +96,49 @@ public class RentPageActivity extends AppCompatActivity {
 
         categoryAdapter = new CategoryAdapter(category_arrayList);
         binding.rcCategory.setAdapter(categoryAdapter);
+
+        Intent intent_category = getIntent();
+        String category = intent_category.getStringExtra("카테고리");
+        if(category == null){category = "NULL";}
+        switch (category){
+            case "NULL":
+                test_arrayList = new ArrayList<>();
+                test_arrayList = rent_arrayList;
+                break;
+            case "도서":
+                test_arrayList = new ArrayList<>();
+                test_arrayList.add(new ReturnData("도서","10000",byteArray_book));
+                break;
+            case "전자기기":
+                test_arrayList = new ArrayList<>();
+                test_arrayList.add(new ReturnData("전자기기","10000",byteArray_elec));
+                break;
+            case "의류":
+                test_arrayList = new ArrayList<>();
+                test_arrayList.add(new ReturnData("의류","10000",byteArray_clothes));
+                break;
+            case "잡화":
+                test_arrayList = new ArrayList<>();
+                test_arrayList.add(new ReturnData("잡화","10000",byteArray_stuff));
+                break;
+            case "생활가전":
+                test_arrayList = new ArrayList<>();
+                test_arrayList.add(new ReturnData("생활가전","10000",byteArray_houseHold));
+                break;
+            case "가구":
+                test_arrayList = new ArrayList<>();
+                test_arrayList.add(new ReturnData("가구","10000",byteArray_furniture));
+                break;
+            case "유아동":
+                test_arrayList = new ArrayList<>();
+                test_arrayList.add(new ReturnData("유아동","10000",byteArray_child));
+                break;
+
+        }
+        rentAdapter = new RentAdapter(test_arrayList);
+        binding.rcItemsList.setAdapter(rentAdapter);
+        linearLayoutManager = new LinearLayoutManager(this);
+        binding.rcItemsList.setLayoutManager(linearLayoutManager);
     }
     public byte[] bitmapToByteArray(Bitmap bitmap) { //img>bitmap>byte[] 함수 필요
         ByteArrayOutputStream stream = new ByteArrayOutputStream() ;

@@ -46,7 +46,6 @@ public class RegisterActivity extends AppCompatActivity {
         binding.btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
                 oneDialog = new OneDialog(RegisterActivity.this,"등록합니다","확인");
                 oneDialog.show();
             }

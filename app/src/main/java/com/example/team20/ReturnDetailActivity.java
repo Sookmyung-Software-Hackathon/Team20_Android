@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import com.example.team20.databinding.ActivityReturnDetailBinding;
 import com.google.android.material.navigation.NavigationView;
 
 public class ReturnDetailActivity extends AppCompatActivity {
+    private TwoDialog twoDialog;
     private ActivityReturnDetailBinding binding;
     @Override
 
@@ -22,9 +24,16 @@ public class ReturnDetailActivity extends AppCompatActivity {
         binding = ActivityReturnDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        layoutParams.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        layoutParams.dimAmount = 0.8f;
+        getWindow().setAttributes(layoutParams);
+
         binding.btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                twoDialog = new TwoDialog(ReturnDetailActivity.this,"반납하시겠습니까?","확인","취소");
+                twoDialog.show();
                 Intent intent = new Intent(ReturnDetailActivity.this, ReturnActivity.class);
                 startActivity(intent);
                 finish();

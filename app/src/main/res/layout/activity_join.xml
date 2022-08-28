@@ -18,7 +18,39 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/etxt_join_email"
+        android:id="@+id/etxt_number"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/gray"
+        android:fontFamily="@font/main_light"
+        android:hint="이메일"
+        android:inputType="textEmailAddress"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.454" />
+
+    <EditText
+        android:id="@+id/etxt_nickname"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/gray"
+        android:fontFamily="@font/main_light"
+        android:hint="닉네임"
+        android:inputType="textEmailAddress"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <EditText
+        android:id="@+id/etxt_join_email3"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/gray"
@@ -66,18 +98,18 @@
 
     <EditText
         android:id="@+id/etxt_join_id"
-        android:layout_width="170dp"
-        android:layout_height="37dp"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/gray"
         android:fontFamily="@font/main_light"
         android:hint="아이디"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.373"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintVertical_bias="0.332" />
 
     <EditText
         android:id="@+id/etxt_number"

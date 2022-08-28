@@ -22,7 +22,7 @@
             android:text="꾸기"
             android:textColor="@color/bg_dark_green"
             android:textSize="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/txt_name"
+            app:layout_constraintBottom_toTopOf="@+id/view_my_page"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,11 +37,11 @@
             android:text="푸마 이름"
             android:textSize="25dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/txt_item_img"
+            app:layout_constraintBottom_toTopOf="@+id/view_my_page"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.135"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_rent_title"
             app:layout_constraintVertical_bias="0.421" />
 
         <TextView

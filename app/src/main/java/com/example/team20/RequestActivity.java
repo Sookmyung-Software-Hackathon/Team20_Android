@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -19,23 +20,21 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.team20.databinding.AcitvityRegisterBinding;
 import com.example.team20.databinding.ActivityChangeBinding;
 import com.example.team20.databinding.ActivityJoinBinding;
 import com.example.team20.databinding.ActivityRequestBinding;
+import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
 
 public class RequestActivity extends AppCompatActivity {
     private ActivityRequestBinding binding;
-    private ImageView imageView;
-    private ActivityResultLauncher<Intent> resultLauncher;
-    private Uri uri;
-    private Bitmap bitmap;
 
-    TextView textView;
+    Spinner spinner;
     Integer[] items = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
 
     @Override
@@ -45,8 +44,7 @@ public class RequestActivity extends AppCompatActivity {
         binding = ActivityRequestBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        textView = findViewById(R.id.txt_request_date);
-        Spinner spinner = findViewById(R.id.spn_request);
+        spinner =binding.spnRequest;
 
         ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(
                 this, android.R.layout.simple_spinner_item, items);
@@ -57,15 +55,37 @@ public class RequestActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                textView.setText(items[position]);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                textView.setText("");
             }
         });
 
+        binding.nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.item_my_page:
+                        Intent intent_my_page = new Intent(RequestActivity.this,MainActivity.class);
+                        startActivity(intent_my_page);
+                        break;
+                    case R.id.item_borrow:
+                        Intent intent_borrow = new Intent(RequestActivity.this, RentPageActivity.class);
+                        startActivity(intent_borrow);
+                        break;
+                    case R.id.item_registration:
+                        Intent intent_registration = new Intent(RequestActivity.this,RegisterActivity.class);
+                        startActivity(intent_registration);
+                        break;
+                    case R.id.item_return:
+                        Intent intent_return = new Intent(RequestActivity.this,ReturnActivity.class);
+                        startActivity(intent_return);
+                        break;
+                }
+                return false;
+            }
+        });
 
 
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
@@ -79,22 +99,6 @@ public class RequestActivity extends AppCompatActivity {
                 showRequestDialog();
             }
         });
-
-        resultLauncher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        if (result.getResultCode() == RESULT_OK) {
-                            uri = result.getData().getData();
-                            try {
-                                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                                imageView.setImageBitmap(bitmap);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                });
 
     }
     void showRequestDialog(){

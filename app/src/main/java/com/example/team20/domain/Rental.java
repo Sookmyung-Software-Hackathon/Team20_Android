@@ -1,7 +1,7 @@
 package com.example.team20.domain;
 
 
-public class Rental {
+public class Rental { //대여
     private int rentalId;
     private String memberId;
     private int itemId;

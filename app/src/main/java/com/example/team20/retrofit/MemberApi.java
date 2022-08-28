@@ -67,8 +67,5 @@ public interface MemberApi {
     Call<ArrayList<CompleteRental>> getCompleteRentalList (@Body Member member);
 
 
-
-
-
-
+    Call<Member> join(String id, String pw);
 }

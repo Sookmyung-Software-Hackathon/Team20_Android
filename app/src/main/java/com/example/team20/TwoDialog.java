@@ -15,7 +15,7 @@ public class TwoDialog extends Dialog {
 
     public TwoDialog(@NonNull Context context, String contents, String btn_txt_f, String btn_txt_s) {
         super(context);
-        setContentView(R.layout.activity_two_dialog);
+        setContentView(R.layout.activity_two_dialog_g);
 
         txt = findViewById(R.id.txt);
         txt.setText(contents);

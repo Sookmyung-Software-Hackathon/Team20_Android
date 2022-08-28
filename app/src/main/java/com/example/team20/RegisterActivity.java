@@ -1,5 +1,7 @@
 package com.example.team20;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -24,7 +26,6 @@ import com.google.android.material.navigation.NavigationView;
 import java.io.IOException;
 
 public class RegisterActivity extends AppCompatActivity {
-    private OneDialog oneDialog;
     private AcitvityRegisterBinding binding;
     private ImageView imageView;
     private ActivityResultLauncher<Intent> resultLauncher;
@@ -46,8 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
         binding.btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                oneDialog = new OneDialog(RegisterActivity.this,"등록합니다","확인");
-                oneDialog.show();
+                showRegisterDialog();
+
             }
         });
 
@@ -102,5 +103,21 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-
+    void showRegisterDialog(){
+        AlertDialog.Builder changeBuilder = new AlertDialog.Builder(RegisterActivity.this)
+                .setMessage("올리겠습니까?")
+                .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })
+                .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+        AlertDialog changeDlg = changeBuilder.create();
+        changeDlg.show();
+    }
 }

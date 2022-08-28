@@ -1,5 +1,7 @@
 package com.example.team20;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.team20.databinding.ActivityJoinBinding;
 
 public class JoinActivity extends AppCompatActivity {
-    private OneDialog oneDialog;
     private ActivityJoinBinding binding;
 
     @Override
@@ -26,8 +27,7 @@ public class JoinActivity extends AppCompatActivity {
         binding.btnIdCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                oneDialog = new OneDialog(JoinActivity.this,"아이디 중복확인 합니다","확인");
-                oneDialog.show();
+                showJoinDialog();
             }
         });
 
@@ -47,5 +47,21 @@ public class JoinActivity extends AppCompatActivity {
                 System.runFinalization();
             }
         });
+    }
+    void showJoinDialog(){
+        AlertDialog.Builder changeBuilder = new AlertDialog.Builder(JoinActivity.this)
+                .setMessage("아이디 중복입니다")
+                .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                })
+                .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+        AlertDialog changeDlg = changeBuilder.create();
+        changeDlg.show();
     }
 }

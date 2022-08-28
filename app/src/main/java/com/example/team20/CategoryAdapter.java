@@ -45,6 +45,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Custom
             @Override
             public void onClick(View view) {
                 intent = new Intent(view.getContext(), RentPageActivity.class);
+                intent.putExtra("카테고리",arrayList.get(holder.getAdapterPosition()).getItem_name());
                 view.getContext().startActivity(intent);
             }
         });

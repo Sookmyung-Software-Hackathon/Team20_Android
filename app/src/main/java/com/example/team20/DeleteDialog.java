@@ -8,12 +8,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-public class TwoDialog extends Dialog {
+public class DeleteDialog extends Dialog {
     private TextView txt;
     private Button btn_f;
     private Button btn_s;
 
-    public TwoDialog(@NonNull Context context, String contents, String btn_txt_f, String btn_txt_s) {
+    public DeleteDialog(@NonNull Context context, String contents, String btn_txt_f, String btn_txt_s) {
         super(context);
         setContentView(R.layout.activity_two_dialog);
 

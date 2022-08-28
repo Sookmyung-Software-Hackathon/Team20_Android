@@ -2,18 +2,20 @@ package com.example.team20;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-public class TwoDialog extends Dialog {
+public class ChangeDialog extends Dialog {
     private TextView txt;
     private Button btn_f;
     private Button btn_s;
+    private Intent intent;
 
-    public TwoDialog(@NonNull Context context, String contents, String btn_txt_f, String btn_txt_s) {
+    public ChangeDialog(@NonNull Context context, String contents, String btn_txt_f, String btn_txt_s) {
         super(context);
         setContentView(R.layout.activity_two_dialog);
 

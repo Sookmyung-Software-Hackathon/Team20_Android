@@ -22,7 +22,7 @@ import com.example.team20.databinding.ActivityJoinBinding;
 import java.io.IOException;
 
 public class ChangeActivity extends AppCompatActivity {
-
+    private TwoDialog twoDialog;
     private ActivityChangeBinding binding;
     private ImageView imageView;
     private ActivityResultLauncher<Intent> resultLauncher;
@@ -48,18 +48,16 @@ public class ChangeActivity extends AppCompatActivity {
         binding.btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChangeActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                twoDialog = new TwoDialog(ChangeActivity.this,"고치시겠습니까?","확인","취소");
+                twoDialog.show();
             }
         });
 
         binding.txtDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChangeActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                twoDialog = new TwoDialog(ChangeActivity.this,"버리시겠습니까?","확인","취소");
+                twoDialog.show();
             }
         });
 

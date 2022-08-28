@@ -10,7 +10,6 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.LoginInfo;
 import com.example.team20.databinding.ActivityLoginBinding;
 import com.example.team20.domain.Member;
 import com.example.team20.retrofit.MemberApi;
@@ -38,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         retrofit = new retrofit2.Retrofit.Builder()
-                .baseUrl("http://192.168.219.110:9000") //cmd 창에서 확인 가능 - ipv4 주소 :9000
+                .baseUrl("http://192.168.219.100:9000") //cmd 창에서 확인 가능 - ipv4 주소 :9000
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .build();
 

@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.LoginInfo;
 import com.example.team20.databinding.ActivityMainBinding;
 import com.example.team20.retrofit.MemberApi;
 import com.google.android.material.navigation.NavigationView;
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         retrofit = new retrofit2.Retrofit.Builder()
-                .baseUrl("http://192.168.219.110:9000") //cmd 창에서 확인 가능 - ipv4 주소 :9000
+                .baseUrl("http://192.168.219.100:9000") //cmd 창에서 확인 가능 - ipv4 주소 :9000
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .build();
         MemberApi service = retrofit.create(MemberApi.class);

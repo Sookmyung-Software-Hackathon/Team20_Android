@@ -1,7 +1,7 @@
 package com.example.team20.domain;
 
 
-public class CompleteRental {
+public class CompleteRental { //대여완료물건
 
     private int completeRentalId;
     private int itemId;

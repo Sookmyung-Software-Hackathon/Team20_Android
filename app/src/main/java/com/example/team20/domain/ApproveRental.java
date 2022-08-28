@@ -1,7 +1,7 @@
 package com.example.team20.domain;
 
 
-public class ApproveRental {
+public class ApproveRental { //대여중인물건
 
     private int approveRentalId;
 

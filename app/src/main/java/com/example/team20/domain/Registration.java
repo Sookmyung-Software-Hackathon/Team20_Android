@@ -1,7 +1,7 @@
 package com.example.team20.domain;
 
 
-public class Registration {
+public class Registration { //등록된 물건 전부 다
     private int itemId;
 
     private String itemName;

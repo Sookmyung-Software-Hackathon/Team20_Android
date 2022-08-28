@@ -3,7 +3,7 @@ package com.example.team20.domain;
 
 import java.util.ArrayList;
 
-public class Member  {
+public class Member  { //회원정보
     private String id;
     private String name;
     private String password;
@@ -15,9 +15,9 @@ public class Member  {
 
     private int point;
 
-    public ArrayList<Registration> registrationArrayList = new ArrayList<>();
-    public ArrayList<ApproveRental> approveRentalArrayList= new ArrayList<>();
-    public ArrayList<CompleteRental> completeRentalArrayList= new ArrayList<>();
+    public ArrayList<Registration> registrationArrayList = new ArrayList<>(); //내가 등록한 물건
+    public ArrayList<ApproveRental> approveRentalArrayList= new ArrayList<>(); //대여중 물건
+    public ArrayList<CompleteRental> completeRentalArrayList= new ArrayList<>(); //대여완료 물건
 
 
     public Member(String id, String name, byte[] profileImage, String password, String email, String telNum) {

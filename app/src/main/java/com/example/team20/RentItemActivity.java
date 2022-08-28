@@ -27,7 +27,7 @@ public class RentItemActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(RentItemActivity.this, RequestActivity.class);
                 startActivity(intent);
-                finish();
+//                finish();
             }
         });
 

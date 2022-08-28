@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.team20.databinding.ActivityJoinBinding;
 import com.example.team20.domain.Member;
@@ -69,26 +71,27 @@ public class JoinActivity extends AppCompatActivity {
         binding.btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    memberApi.save(member)
-                            .enqueue(new Callback<Member>() {
-                                @Override
-                                public void onResponse(Call<Member> call, Response<Member> response) {
-                                }
-
-                                @Override
-                                public void onFailure(Call<Member> call, Throwable t) {
-                                }
-                            });
-                    showSuccessDialog();
-                    Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                }catch (IllegalStateException e){
-                    showFailDialog();
-                }
+                Call<Member> loginResponseInfoCall = memberApi.save(member);
+                loginResponseInfoCall.enqueue(new Callback<Member>() {
+                    @Override
+                    public void onResponse(Call<Member> call, Response<Member> response) {
+                        if (response.isSuccessful()) {
+                            // 통신 성공, 원하는 정보도 제대로 받아옴 or 보냄
+                            showSuccessDialog();
+                        } else {
+                            // 통신 성공, 그러나 원하는 정보를 받아오거나 보내지 못함
+                            showFailDialog();
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<Member> call, Throwable t) {// 통신 실패
+                        Log.d("HTTP", "로그인 연결 실패 ");
+                        Log.e("연결실패", t.getMessage());
+                    }
+                });
             }
         });
+
 
         binding.btnJoinCancel.setOnClickListener(new View.OnClickListener() {
             @Override

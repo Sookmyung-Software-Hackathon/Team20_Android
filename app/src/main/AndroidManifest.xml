@@ -12,7 +12,8 @@
         android:label="team20"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Team20">
+        android:theme="@style/Theme.Team20"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".SplashActivity"
             android:exported="true"
